@@ -10,9 +10,6 @@ spring:
       percentage: 0.2
 
 zuul:
-  byPassUrl:
-    - /**/user/**
-  ignoredPatterns: /**/admin/**
   ribbon:
     eager-load:
       enabled: true
