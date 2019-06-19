@@ -1,0 +1,19 @@
+server:
+  port: 5002
+
+zipkin:
+  collector:
+    rabbitmq:
+      addresses: 139.224.200.249:5682
+      password: lengleng
+      username: pig
+      queue: zipkin
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      hosts: 139.224.200.249:9200
+      cluster: elasticsearch
+      index: zipkin
+      max-requests: 64
+      index-shards: 5
+      index-replicas: 1
