@@ -13,12 +13,12 @@ spring:
     remote: false        #cachecloud 获取
     host: 127.0.0.1
     port: 6379
-    password:
+    password: 123456
   rabbitmq:
-    host: 139.224.200.249
+    host: 127.0.0.1
     port: 5672
-    username: pig
-    password: pig
+    username: rabbitmq
+    password: rabbit
   http:
     multipart:
       max-file-size: 1000MB
@@ -58,11 +58,17 @@ feign:
       enabled: true
 
 hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
   command:
     default:
       execution:
         isolation:
-          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 60000
 
 #监控短点配置
 management:
